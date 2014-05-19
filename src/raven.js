@@ -103,6 +103,19 @@ var Raven = {
     },
 
     /*
+     * Allows setting a single configuration value
+     * after Raven has already been configured.
+     * @param {string} name of configuration value
+     * @param {string/object} value of configuration value
+     */
+    setOption: function(name, value) {
+        globalOptions[name] = value;
+
+        // return for chaining
+        return Raven;
+    },
+
+    /*
      * Installs a global window.onerror error handler
      * to capture and report uncaught exceptions.
      * At this point, install() is required to be called due
